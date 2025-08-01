@@ -1,0 +1,46 @@
+.table-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.table-header,
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.header-cell,
+.cell {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.header-cell {
+  background-color: #5bc0eb;
+  color: white;
+}
+
+.header-cell.dark {
+  background-color: #19357B;
+}
+
+.cell.blue {
+  background-color: #5bc0eb;
+  color: white;
+}
+
+.cell.gray {
+  background-color: #E1E4E6;
+  color: #2A9FCF;
+}
+
+.cell.dark-text {
+  color: #192C5E;
+}

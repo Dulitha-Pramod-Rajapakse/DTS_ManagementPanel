@@ -1,18 +1,13 @@
-// src/Router.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LocationWise  from "./assets/Components/LocationWise.jsx"; // Adjust the import path as necessary
-
-// Import components
-
+import LocationWise from "./Components/LocationWise.jsx";
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        {/* Define your routes here */}
-        <Route path="/" element={<LocationWise/>} />
-
+        <Route path="/" element={<LocationWise />} />
+        {/* Add more routes here when needed */}
       </Routes>
     </Router>
   );
