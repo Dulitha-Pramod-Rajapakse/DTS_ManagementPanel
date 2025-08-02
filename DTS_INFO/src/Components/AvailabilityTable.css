@@ -45,3 +45,53 @@ th.dark {
 .cell.dark-text {
   color: #192C5E;
 }
+
+/* Responsive styles */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.availability-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px; /* helps prevent column squishing on small screens */
+}
+
+.availability-table th,
+.availability-table td {
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.blue {
+  background-color: #4fc3f7;
+  color: white;
+}
+
+.dark {
+  background-color: #1e88e5;
+  color: white;
+}
+
+.dark-text {
+  color: #333;
+}
+
+.cell {
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  .availability-table th,
+  .availability-table td {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .availability-table {
+    min-width: 100%;
+  }
+}
+

@@ -11,7 +11,7 @@ const data = [
   { location: 'Services', strength: 50, available: 30 },
 ];
 
-export default function AvailabilityTable() {
+export default function AvailabilityTableLocationWise() {
   return (
     <div className="table-container">
       <table className="availability-table">
