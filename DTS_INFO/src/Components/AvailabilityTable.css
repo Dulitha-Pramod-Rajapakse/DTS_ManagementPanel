@@ -5,16 +5,14 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-.table-header,
-.table-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
+.availability-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
 }
 
-.header-cell,
-.cell {
-  flex: 1;
+th,
+td {
   text-align: center;
   padding: 12px;
   border-radius: 12px;
@@ -22,15 +20,18 @@
   font-weight: bold;
 }
 
-.header-cell {
+/* Header colors */
+th.blue {
   background-color: #5bc0eb;
   color: white;
 }
 
-.header-cell.dark {
+th.dark {
   background-color: #19357B;
+  color: white;
 }
 
+/* Cell colors */
 .cell.blue {
   background-color: #5bc0eb;
   color: white;

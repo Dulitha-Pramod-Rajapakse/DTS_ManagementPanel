@@ -14,23 +14,29 @@ const data = [
 export default function AvailabilityTable() {
   return (
     <div className="table-container">
-      <div className="table-header">
-        <div className="header-cell">Locations</div>
-        <div className="header-cell">Strength</div>
-        <div className="header-cell dark">Available</div>
-      </div>
-      {data.map(({ location, strength, available }) => {
-        const percent = ((available / strength) * 100).toFixed(1);
-        return (
-          <div className="table-row" key={location}>
-            <div className="cell blue">{location}</div>
-            <div className="cell gray">{strength}</div>
-            <div className="cell gray dark-text">
-              {available} ({percent}%)
-            </div>
-          </div>
-        );
-      })}
+      <table className="availability-table">
+        <thead>
+          <tr>
+            <th className="blue">Locations</th>
+            <th className="blue">Strength</th>
+            <th className="dark">Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map(({ location, strength, available }) => {
+            const percent = ((available / strength) * 100).toFixed(1);
+            return (
+              <tr key={location}>
+                <td className="cell blue">{location}</td>
+                <td className="cell gray">{strength}</td>
+                <td className="cell gray dark-text">
+                  {available} ({percent}%)
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
