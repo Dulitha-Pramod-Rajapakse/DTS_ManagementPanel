@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { Box, Typography } from "@mui/material";
-import logo from "../../assets/logo.png"; // DTS INFO LOGO
+import logo from "../../assets/logo.png";
 
 const Header = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
