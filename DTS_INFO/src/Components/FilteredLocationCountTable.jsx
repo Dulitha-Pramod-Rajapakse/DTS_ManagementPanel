@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './LocationWise.css';
+import '../layouts/LocationWise.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // JS for navbar toggle
 import './AvailabilityTable.css';
