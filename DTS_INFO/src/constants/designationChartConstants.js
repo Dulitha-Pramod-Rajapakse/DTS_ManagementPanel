@@ -1,0 +1,5 @@
+// src/constants/designationChartConstants.js
+export const DESIGNATION_CHART_REQUEST = 'DESIGNATION_CHART_REQUEST';
+export const DESIGNATION_CHART_SUCCESS = 'DESIGNATION_CHART_SUCCESS';
+export const DESIGNATION_CHART_FAIL = 'DESIGNATION_CHART_FAIL';
+    

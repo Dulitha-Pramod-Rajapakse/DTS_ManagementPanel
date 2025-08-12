@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import './LocationWise.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import LocationWiseChart from '../Components/LocationWiseChart.jsx';
