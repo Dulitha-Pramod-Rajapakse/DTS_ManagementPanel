@@ -1,14 +1,17 @@
-// store.js
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers/rootReducer';
 
-const middleware = [thunk];
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import { attendanceReducer } from "./reducers/attendanceReducer";
+
+const rootReducer = combineReducers({
+  attendance: attendanceReducer,
+});
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(...middleware))
+  rootReducer,
+  composeEnhancers(applyMiddleware())  // no thunk for now
+
 );
 
 export default store;
