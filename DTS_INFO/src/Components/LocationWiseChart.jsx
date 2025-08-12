@@ -12,15 +12,19 @@ const dataset = [
   { role: 'HUR', available: 35, strength: 40 },
 ];
 
-const chartSetting = {
-  xAxis: [{ label: 'Count' }],
-  height: 400,
-  margin: { left: 120 }, // Adjust to fit longer role names
-};
-
 export default function LocationWiseChart() {
+  const [chartWidth, setChartWidth] = React.useState(window.innerWidth * 0.9);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setChartWidth(window.innerWidth * 0.9); // 90% of viewport width
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div>
+    <div style={{ width: '100%', overflowX: 'auto' }}>
       <BarChart
         dataset={dataset}
         yAxis={[{ scaleType: 'band', dataKey: 'role' }]}
@@ -29,7 +33,10 @@ export default function LocationWiseChart() {
           { dataKey: 'strength', label: 'Strength', color: '#5BC0EB' },
         ]}
         layout="horizontal"
-        {...chartSetting}
+        xAxis={[{ label: 'Count' }]}
+        width={chartWidth}
+        height={400}
+        margin={{ right: 50 }}
       />
     </div>
   );

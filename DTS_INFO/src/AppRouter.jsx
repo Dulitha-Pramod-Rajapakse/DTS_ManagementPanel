@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LocationWise from "./layouts/LocationWise.jsx";
 import DesignationWise from "./Components/DesignationWise.jsx";
+import Header from './Components/Header/Header.jsX';
 
 import Attendance from "./layouts/attendance.jsx";
 

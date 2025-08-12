@@ -59,7 +59,6 @@ th.dark {
   width: 100%;
   border-collapse: separate;
   border-spacing: 12px 12px;
-  min-width: 400px; /* helps prevent column squishing on small screens */
 }
 
 .availability-table th,
