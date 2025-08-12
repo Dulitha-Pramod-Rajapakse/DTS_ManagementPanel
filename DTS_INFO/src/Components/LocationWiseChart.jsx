@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-import './LocationWise.css';
+import '../layouts/LocationWise.css';
 
 const dataset = [
   { role: 'Others', available: 20, strength: 35 },
