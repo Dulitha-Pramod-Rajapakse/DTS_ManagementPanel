@@ -1,0 +1,2 @@
+// Action Types
+export const FETCH_DESIGNATION_WISE_DATA = "FETCH_DESIGNATION_WISE_DATA";

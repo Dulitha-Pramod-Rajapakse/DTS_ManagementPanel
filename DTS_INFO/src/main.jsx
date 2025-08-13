@@ -11,11 +11,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from "react-redux";
 import HomeLayout from "./layouts/Home.jsx";
 import store from "./store";
+import { ToastContainer } from 'react-toastify';
+
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
  <Provider store={store}>
     <AppRouter />
+    <ToastContainer/>
   </Provider>
 );
