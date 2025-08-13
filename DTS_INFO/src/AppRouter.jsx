@@ -6,6 +6,7 @@ import DailyDeployment from "./layouts/DailyDeployment.jsx";
 import EmployeeList from "./Components/EmployeeList.jsx";
 import Header from "./Components/Header/Header.jsx"; 
 import Attendance from "./layouts/attendance.jsx";
+import LogIn from "./Components/Login.jsx"; 
 
 
 function AppRouter() {
@@ -22,6 +23,7 @@ function AppRouter() {
          {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/LocationWise" element={<LocationWise/>}/>
         <Route path="/attendance" element={<Attendance />} />
+        <Route path="/Login" element={<LogIn />} />
 
 
         {/* Add more routes here when needed */}
