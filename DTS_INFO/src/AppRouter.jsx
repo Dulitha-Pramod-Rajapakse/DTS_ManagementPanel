@@ -2,11 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LocationWise from "./layouts/LocationWise.jsx";
 import DesignationWise from "./Components/DesignationWise.jsx";
-
 import DailyDeployment from "./layouts/DailyDeployment.jsx";
 import EmployeeList from "./Components/EmployeeList.jsx";
 import Header from "./Components/Header/Header.jsx"; 
-
+import HomeLayout from "./layouts/Home.jsx";
 import Attendance from "./layouts/attendance.jsx";
 import LogIn from "./Components/Login.jsx"; 
 
@@ -17,10 +16,8 @@ function AppRouter() {
       <Header />
       <Routes>
         {/* <Route path="/" element={<DesignationWise />} /> */}
-        <Route path="/" element={<LocationWise/>}/>
-
+        <Route path="/" element={<HomeLayout />} />
         <Route path="/employees/:code" element={<EmployeeList />} />
-
         <Route path="/daily-deployment" element={<DailyDeployment />} />
          {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/LocationWise" element={<LocationWise/>}/>

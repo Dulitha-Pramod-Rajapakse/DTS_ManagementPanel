@@ -1,5 +1,5 @@
 // LocationWiseChartReducer.js
-import { FETCH_LOCATION_WISE_DATA } from './LocationWiseChartConstant';
+import { FETCH_LOCATION_WISE_DATA } from '../constants/LocationWiseChartConstant';
 
 const initialState = {
   dataset: [],
