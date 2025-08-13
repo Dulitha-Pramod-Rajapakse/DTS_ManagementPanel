@@ -1,10 +1,11 @@
 // LocationWiseChartLayout.js
 import React, { useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLocationWiseData } from '../action/LocationWiseChartAction';
-import './LocationWise.css';
+import '../layouts/LocationWise.css';
+
+
 
 const chartSetting = {
   xAxis: [{ label: 'Count' }],
@@ -16,6 +17,7 @@ export default function LocationWiseChartLayout() {
   const dispatch = useDispatch();
   const dataset = useSelector((state) => state.locationWiseChart.dataset);
 
+  console.log('LocationWiseChartLayout dataset:', dataset);
   useEffect(() => {
     dispatch(fetchLocationWiseData());
   }, [dispatch]);
@@ -32,7 +34,7 @@ export default function LocationWiseChartLayout() {
         ]}
         layout="horizontal"
         xAxis={[{ label: 'Count' }]}
-        width={chartWidth}
+        width={400}
         height={400}
         margin={{ right: 50 }}
       />
