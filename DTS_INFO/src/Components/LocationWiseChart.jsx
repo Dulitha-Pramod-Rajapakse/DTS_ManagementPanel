@@ -1,6 +1,7 @@
 // LocationWiseChartLayout.js
 import React, { useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLocationWiseData } from '../action/LocationWiseChartAction';
 import './LocationWise.css';
@@ -19,8 +20,9 @@ export default function LocationWiseChartLayout() {
     dispatch(fetchLocationWiseData());
   }, [dispatch]);
 
+
   return (
-    <div>
+    <div style={{ width: '100%', overflowX: 'auto' }}>
       <BarChart
         dataset={dataset}
         yAxis={[{ scaleType: 'band', dataKey: 'role' }]}
@@ -29,7 +31,10 @@ export default function LocationWiseChartLayout() {
           { dataKey: 'strength', label: 'Strength', color: '#5BC0EB' },
         ]}
         layout="horizontal"
-        {...chartSetting}
+        xAxis={[{ label: 'Count' }]}
+        width={chartWidth}
+        height={400}
+        margin={{ right: 50 }}
       />
     </div>
   );

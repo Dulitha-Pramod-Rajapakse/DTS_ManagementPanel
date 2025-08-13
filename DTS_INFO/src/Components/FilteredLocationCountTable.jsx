@@ -1,10 +1,16 @@
+
 // components/FilteredLocationCountTable.jsx
 import React from "react";
 import { useSelector } from "react-redux";
-import "./LocationWise.css";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./AvailabilityTable.css";
+
+
+import '../layouts/LocationWise.css';
+
+
 
 export default function FilteredLocationCountTable() {
   const locations = useSelector((state) => state.locationData.locations);
