@@ -1,0 +1,82 @@
+.employee-page-container {
+  padding: 16px;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+.page-header h2 {
+  font-weight: bold;
+  color: #004b8d;
+  margin-bottom: 4px;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+}
+
+.page-header h3 {
+  font-weight: bold;
+  color: #004b8d;
+  margin-bottom: 16px;
+  text-decoration: underline;
+  font-size: clamp(1rem, 3.5vw, 1.3rem);
+}
+
+.employee-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.employee-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  background-color: white;
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.employee-row.header {
+  background-color: #b0e5f6;
+  font-weight: bold;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+.service-no {
+  background-color: #21a1c4;
+  color: white;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-weight: bold;
+  font-size: clamp(0.75rem, 2.3vw, 0.9rem);
+}
+
+.employee-name {
+  font-weight: bold;
+  color: #333;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  word-break: break-word;
+}
+
+.designation {
+  font-weight: bold;
+  color: #004b8d;
+  font-size: clamp(0.75rem, 2.3vw, 0.9rem);
+}
+
+/* 📱 Mobile optimizations */
+@media (max-width: 480px) {
+  .employee-row {
+    grid-template-columns: 1fr 1.8fr 1.2fr;
+    padding: 6px;
+  }
+  
+  .employee-row.header {
+    padding: 6px;
+  }
+
+  .service-no {
+    padding: 3px 5px;
+  }
+}
