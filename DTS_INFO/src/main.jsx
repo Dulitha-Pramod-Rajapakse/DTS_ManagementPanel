@@ -9,6 +9,7 @@ import AppRouter from './AppRouter.jsx';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Provider } from "react-redux";
+import HomeLayout from "./layouts/Home.jsx";
 import store from "./store";
 
 

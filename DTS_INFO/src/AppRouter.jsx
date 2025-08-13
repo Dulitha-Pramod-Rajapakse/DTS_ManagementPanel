@@ -6,6 +6,8 @@ import DailyDeployment from "./layouts/DailyDeployment.jsx";
 import EmployeeList from "./Components/EmployeeList.jsx";
 import Header from "./Components/Header/Header.jsx"; 
 import Attendance from "./layouts/attendance.jsx";
+import HomeLayout from "./layouts/Home.jsx";
+
 
 
 function AppRouter() {
@@ -14,7 +16,8 @@ function AppRouter() {
       <Header />
       <Routes>
         {/* <Route path="/" element={<DesignationWise />} /> */}
-        <Route path="/" element={<LocationWise/>}/>
+        <Route path="/" element={<HomeLayout />} />
+
 
         <Route path="/employees/:code" element={<EmployeeList />} />
 
