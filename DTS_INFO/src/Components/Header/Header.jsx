@@ -21,7 +21,7 @@ const Header = () => {
         if (hours < 17) {
             return "Good Afternoon...";
         }
-        return "Good Evening...";
+        return "Good Night... Have a Sweet Dreams!";
     };
 
     const formatTime = currentTime.toLocaleTimeString("en-US", {
