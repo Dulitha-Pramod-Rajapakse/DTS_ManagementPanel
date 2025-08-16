@@ -1,13 +1,25 @@
-// components/FilteredLocationCountTable.jsx
-import React from "react";
-import { useSelector } from "react-redux";
-import "./LocationWise.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./AvailabilityTable.css";
+import * as React from 'react';
+import '../layouts/LocationWise.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // JS for navbar toggle
+import './AvailabilityTable.css';
 
-export default function FilteredLocationCountTable() {
-  const locations = useSelector((state) => state.locationData.locations);
+const desig = [
+  { location: 'HUC', available: 35 },
+  { location: 'HUR', available: 80 },
+  { location: 'Piping', available: 30 },
+  { location: 'Afloat', available: 35 },
+  { location: 'Scaffolding', available: 8 },
+];
+
+export default function AvailabilityTableDesignationWise() {
+//   const desig = [
+//     { location: 'HUC', available: 35 },
+//     { location: 'HUR', available: 80 },
+//     { location: 'Piping', available: 30 },
+//     { location: 'Afloat', available: 35 },
+//     { location: 'Scaffolding', available: 8 },
+//   ];
 
   return (
     <div className="table-container">
