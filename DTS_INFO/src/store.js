@@ -1,12 +1,4 @@
-
-
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-
-
-
-
-
-// src/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./reducers/rootReducer";
 
@@ -16,5 +8,6 @@ const store = configureStore({
  
 
 });
+
 
 export default store;
