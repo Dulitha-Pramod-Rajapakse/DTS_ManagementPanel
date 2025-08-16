@@ -16,7 +16,7 @@ export const login = (username, password, navigate) => async (dispatch) => {
         payload: response.data, 
       });
 
-      // Navigate to dashboard or home page
+      // Navigate to  home page
       navigate("/");
     } else {
       dispatch({
