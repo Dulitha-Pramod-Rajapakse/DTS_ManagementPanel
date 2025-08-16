@@ -1,24 +1,22 @@
-// src/components/AvailabilityTable.jsx
-import React from 'react';
+// components/AvailabilityTableDesignationWise.jsx
+import React, { useEffect } from 'react';
 import './AvailabilityTable.css';
-
-const desig = [
-    { location: 'Welders', strength: 90, available: 89 },
-    { location: 'Class Welders', strength: 70, available: 55 },
-    { location: 'Fabricators', strength: 20, available: 5 },
-    { location: 'Scaffolders', strength: 40, available: 30 },
-    { location: 'Forklift Operators', strength: 40, available: 20 },
-    { location: 'CherryPicker', strength: 50, available: 33 },
-    { location: 'Industrial Workers', strength: 45, available: 40 },
-    { location: 'Supervisors', strength: 50, available: 10 },
-    { location: 'Engineers', strength: 40, available: 20 },
-    { location: 'Group Leaders', strength: 90, available: 89 }
-    
-];
+import { useDispatch, useSelector } from 'react-redux';
+import { listDesignations } from '../action/designationActions';
 
 export default function AvailabilityTableDesignationWise() {
+    const dispatch = useDispatch();
+
+    const designationList = useSelector((state) => state.designationList);
+    const { designations, error } = designationList;
+
+    useEffect(() => {
+        dispatch(listDesignations());
+    }, [dispatch]);
+
     return (
         <div className="table-container">
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <table className="availability-table">
                 <thead>
                     <tr>
@@ -28,7 +26,7 @@ export default function AvailabilityTableDesignationWise() {
                     </tr>
                 </thead>
                 <tbody>
-                    {desig.map(({ location, strength, available }) => {
+                    {designations.map(({ location, strength, available }) => {
                         const percent = ((available / strength) * 100).toFixed(1);
                         return (
                             <tr key={location}>

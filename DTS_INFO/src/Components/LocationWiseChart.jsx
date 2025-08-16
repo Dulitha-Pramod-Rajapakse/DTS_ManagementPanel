@@ -1,26 +1,30 @@
-import * as React from 'react';
+// LocationWiseChartLayout.js
+import React, { useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-import './LocationWise.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLocationWiseData } from '../action/LocationWiseChartAction';
+import '../layouts/LocationWise.css';
 
-const dataset = [
-  { role: 'Others', available: 20, strength: 35 },
-  { role: 'Services', available: 30, strength: 50 },
-  { role: 'Scaffolding', available: 8, strength: 15 },
-  { role: 'Afloat', available: 35, strength: 45 },
-  { role: 'Piping', available: 30, strength: 35 },
-  { role: 'HUC', available: 80, strength: 90 },
-  { role: 'HUR', available: 35, strength: 40 },
-];
+
 
 const chartSetting = {
   xAxis: [{ label: 'Count' }],
   height: 400,
-  margin: { left: 120 }, // Adjust to fit longer role names
+  margin: { left: 120 },
 };
 
-export default function LocationWiseChart() {
+export default function LocationWiseChartLayout() {
+  const dispatch = useDispatch();
+  const dataset = useSelector((state) => state.locationWiseChart.dataset);
+
+  console.log('LocationWiseChartLayout dataset:', dataset);
+  useEffect(() => {
+    dispatch(fetchLocationWiseData());
+  }, [dispatch]);
+
+
   return (
-    <div>
+    <div style={{ width: '100%', overflowX: 'auto' }}>
       <BarChart
         dataset={dataset}
         yAxis={[{ scaleType: 'band', dataKey: 'role' }]}
@@ -29,7 +33,10 @@ export default function LocationWiseChart() {
           { dataKey: 'strength', label: 'Strength', color: '#5BC0EB' },
         ]}
         layout="horizontal"
-        {...chartSetting}
+        xAxis={[{ label: 'Count' }]}
+        width={400}
+        height={400}
+        margin={{ right: 50 }}
       />
     </div>
   );

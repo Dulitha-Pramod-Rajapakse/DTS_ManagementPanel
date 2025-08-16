@@ -1,0 +1,59 @@
+/* General layout */
+.Topic {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+  color: #003366;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+/* Chart section */
+.chart-container {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-top: 75px;
+}
+
+/* Table section */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+/* MOBILE view */
+@media (max-width: 768px) {
+  .Topic {
+    font-size: 1.1rem;
+  }
+
+  th, td {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  /* Ensure chart scales with screen */
+  .chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
