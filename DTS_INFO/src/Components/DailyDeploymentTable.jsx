@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './DailyDeploymentTable.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchDeploymentData } from '../action/deploymentActions.js';
 
-const deploymentData = [
-  { code: 'NC - 0261', label: 'Hybrid Vessel', value: 71 },
-  { code: 'NC - 0260', label: 'Cabling Vessel', value: 15 },
-  { code: 'SR - 4536', label: 'Hari Leela', value: 15 },
-  { code: 'SR - 4536', label: 'MT Ocean City', value: 13 },
-  { code: '', label: 'Workshops', value: 39 },
-];
+export default function DailyDeploymentTable() {
+  const dispatch = useDispatch();
+  const { deploymentData, loading } = useSelector((state) => state.deployment);
 
-export default function DailyDeployment() {
+  useEffect(() => {
+    dispatch(fetchDeploymentData());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <div className="deployment-container">
       <div className="deployment-card">
         <h2 className="deployment-title">DAILY DEPLOYMENT</h2>
-
         {deploymentData.map((item, index) => (
           <div className="deployment-item" key={index}>
             <div className="deployment-info">
@@ -28,6 +30,3 @@ export default function DailyDeployment() {
     </div>
   );
 }
-
-
-

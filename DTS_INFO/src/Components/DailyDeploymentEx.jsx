@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./DailyDeploymentEx.css";
 
-const deploymentData = [
+const deploymentDataEx = [
   {
     code: "NC - 0261",
     label: "Hybrid Vessel",
@@ -48,7 +48,7 @@ export default function DailyDeploymentTable() {
       <div className="deployment-card">
         <h2 className="deployment-title">DAILY DEPLOYMENT</h2>
 
-        {deploymentData.map((item, index) => (
+        {deploymentDataEx.map((item, index) => (
           <div key={index}>
             {/* Main Summary */}
             <div
