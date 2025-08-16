@@ -1,16 +1,16 @@
-import * as React from 'react';
-import '../layouts/LocationWise.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // JS for navbar toggle
-import './AvailabilityTable.css';
 
-const desig = [
-  { location: 'HUC', available: 35 },
-  { location: 'HUR', available: 80 },
-  { location: 'Piping', available: 30 },
-  { location: 'Afloat', available: 35 },
-  { location: 'Scaffolding', available: 8 },
-];
+// components/FilteredLocationCountTable.jsx
+import React from "react";
+import { useSelector } from "react-redux";
+
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./AvailabilityTable.css";
+
+
+import '../layouts/LocationWise.css';
+
+
 
 export default function AvailabilityTableDesignationWise() {
 //   const desig = [

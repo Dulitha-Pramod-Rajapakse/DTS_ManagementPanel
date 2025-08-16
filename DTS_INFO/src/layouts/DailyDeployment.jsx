@@ -7,8 +7,6 @@ import DailyDeploymentEx from '../Components/DailyDeploymentEx.jsx';
 export default function DailyDeployment() {
   return (
     <div>
-      <h1 className="Topic">Daily Deployment</h1>
-      <DailyDeploymentTable />
       <DailyDeploymentEx />
     </div>
   );
