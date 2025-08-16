@@ -18,7 +18,7 @@ function AppRouter() {
         {/* <Route path="/" element={<DesignationWise />} /> */}
         <Route path="/" element={<HomeLayout />} />
         <Route path="/employees/:code" element={<EmployeeList />} />
-        <Route path="/daily-deployment" element={<DailyDeployment />} />
+        <Route path="/dailyDeployment" element={<DailyDeployment />} />
          {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/LocationWise" element={<LocationWise/>}/>
         <Route path="/attendance" element={<Attendance />} />
