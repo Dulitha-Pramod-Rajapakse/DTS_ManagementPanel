@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import './LocationWise.css';
+// import './LocationWise.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import LocationWiseChart from '../Components/LocationWiseChart.jsx';
 import AvailabilityTableLocationWise from '../Components/AvailabilityTableLocationWise.jsx';
@@ -9,7 +9,7 @@ import { ThemeProvider } from '@mui/material/styles';
 
 export default function LocationWise() {
   return (
-      <Box className="container">
+      <Box >
         
           <h1 className="Topic">EMPLOYEE ATTENDANCE BASED ON LOCATION</h1>
            <div className="chart-container">

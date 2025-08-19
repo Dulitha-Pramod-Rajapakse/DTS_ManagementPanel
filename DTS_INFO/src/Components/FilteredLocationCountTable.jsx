@@ -1,16 +1,9 @@
-
 // components/FilteredLocationCountTable.jsx
 import React from "react";
 import { useSelector } from "react-redux";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./AvailabilityTable.css";
-
-
-import '../layouts/LocationWise.css';
-
-
 
 export default function AvailabilityTableDesignationWise() {
 //   const desig = [
@@ -22,7 +15,15 @@ export default function AvailabilityTableDesignationWise() {
 //   ];
 
   return (
-    <div className="table-container">
+    <div
+      style={{
+        width: "90%",
+        maxWidth: "600px",
+        margin: "30px auto",
+        fontFamily: "'Segoe UI', sans-serif",
+        overflowX: "auto"
+      }}
+    >
       {/* Navbar Dropdown */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid p-0">
@@ -38,7 +39,10 @@ export default function AvailabilityTableDesignationWise() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse text-start" id="navbarNavDropdown">
+          <div
+            className="collapse navbar-collapse text-start"
+            id="navbarNavDropdown"
+          >
             <ul className="navbar-nav me-auto">
               <li className="nav-item"><a className="nav-link active" href="#">Welders</a></li>
               <li className="nav-item"><a className="nav-link" href="#">Class Welders</a></li>
@@ -56,18 +60,78 @@ export default function AvailabilityTableDesignationWise() {
       </nav>
       {/* End Navbar Dropdown */}
 
-      <table className="availability-table">
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "separate",
+          borderSpacing: "12px 12px"
+        }}
+      >
         <thead>
           <tr>
-            <th className="blue">Location</th>
-            <th className="dark">Available</th>
+            <th
+              style={{
+                textAlign: "center",
+                padding: "8px 12px",
+                fontSize: "14px",
+                fontWeight: "bold",
+                borderRadius: "12px",
+                boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
+                backgroundColor: "#5bc0eb",
+                color: "white"
+              }}
+            >
+              Location
+            </th>
+            <th
+              style={{
+                textAlign: "center",
+                padding: "8px 12px",
+                fontSize: "14px",
+                fontWeight: "bold",
+                borderRadius: "12px",
+                boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
+                backgroundColor: "#19357B",
+                color: "white"
+              }}
+            >
+              Available
+            </th>
           </tr>
         </thead>
         <tbody>
           {locations.map(({ location, available }) => (
             <tr key={location}>
-              <td className="cell blue">{location}</td>
-              <td className="cell gray dark-text">{available}</td>
+              <td
+                style={{
+                  textAlign: "center",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  borderRadius: "12px",
+                  boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
+                  border: "1px solid #ccc",
+                  backgroundColor: "#5bc0eb",
+                  color: "white"
+                }}
+              >
+                {location}
+              </td>
+              <td
+                style={{
+                  textAlign: "center",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  borderRadius: "12px",
+                  boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
+                  border: "1px solid #ccc",
+                  backgroundColor: "#E1E4E6",
+                  color: "#192C5E"
+                }}
+              >
+                {available}
+              </td>
             </tr>
           ))}
         </tbody>

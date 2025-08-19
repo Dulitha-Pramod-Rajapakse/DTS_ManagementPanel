@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LocationWise from "./layouts/LocationWise.jsx";
-import DesignationWise from "./Components/DesignationWise.jsx";
+import DesignationWise from "./layouts/DesignationWise.jsx";
 import DailyDeployment from "./layouts/DailyDeployment.jsx";
 import EmployeeList from "./Components/EmployeeList.jsx";
 import Header from "./Components/Header/Header.jsx"; 
@@ -15,7 +15,7 @@ function AppRouter() {
     <Router>
       <Header />
       <Routes>
-        {/* <Route path="/" element={<DesignationWise />} /> */}
+        <Route path="/DesignationWise" element={<DesignationWise />} />
         <Route path="/" element={<HomeLayout />} />
         <Route path="/employees/:code" element={<EmployeeList />} />
         <Route path="/dailyDeployment" element={<DailyDeployment />} />
