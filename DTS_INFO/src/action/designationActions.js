@@ -1,7 +1,7 @@
 // actions/designationActions.js
 import { DESIGNATION_LIST_SUCCESS, DESIGNATION_LIST_FAIL } from '../constants/designationConstants';
 
-export const listDesignations = () => async (dispatch) => {
+export  const listDesignations = () => async (dispatch) => {
     try {
         // In real usage, you might fetch from API instead of hardcoding
         const data = [
