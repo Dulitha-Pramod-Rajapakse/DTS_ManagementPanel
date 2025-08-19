@@ -1,36 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Header from "./Components/Header/Header.jsx";
+import HomeLayout from "./layouts/Home.jsx";
+import DesignationWise from "./layouts/DesignationWise.jsx";
+import LocationWise from "./layouts/LocationWise.jsx";
+import DailyDeployment from "./layouts/DailyDeployment.jsx";
+import EmployeeList from "./Components/EmployeeList.jsx";
+import Attendance from "./layouts/attendance.jsx";
+import LogIn from "./Components/Login.jsx";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Wrapper to conditionally render Header
+function AppWrapper() {
+  const location = useLocation();
+  const hideHeaderPaths = ["/Login"];
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      
+      {!hideHeaderPaths.includes(location.pathname) && <Header />}
+      <Routes>
+        <Route path="/" element={<HomeLayout />} />
+        <Route path="/DesignationWise" element={<DesignationWise />} />
+        <Route path="/employees/:code" element={<EmployeeList />} />
+        <Route path="/dailyDeployment" element={<DailyDeployment />} />
+        <Route path="/LocationWise" element={<LocationWise />} />
+        <Route path="/attendance" element={<Attendance />} />
+        <Route path="/Login" element={<LogIn />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <AppWrapper />
+    </Router>
+  );
+}
+
+export default App;

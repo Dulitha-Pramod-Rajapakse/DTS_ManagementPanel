@@ -5,14 +5,8 @@ import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-export default function AvailabilityTableDesignationWise() {
-//   const desig = [
-//     { location: 'HUC', available: 35 },
-//     { location: 'HUR', available: 80 },
-//     { location: 'Piping', available: 30 },
-//     { location: 'Afloat', available: 35 },
-//     { location: 'Scaffolding', available: 8 },
-//   ];
+export default function FilteredLocationCountTable() {
+  const locations = useSelector((state) => state.locationData.locations);
 
   return (
     <div
