@@ -1,179 +1,210 @@
-import React, { use } from "react";
-import "./LogIn.css";
-import { useRef } from "react";
-import hideEye from "../assets/eye-no-svgrepo-com.svg";
-import showEye from "../assets/eye-svgrepo-com.svg";
+import { useState, useEffect } from "react";
+import { Box, Card, Container, Typography } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { useSelector,useDispatch } from "react-redux";
+import imge from "../assets/NewBGImage.jpg";
+import Textlogo from "../assets/logo.png";
+import LoadingButton from "@mui/lab/LoadingButton";
+import LoginIcon from "@mui/icons-material/Login";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../action/loginAction";
-import { useState, useEffect } from "react";
+// import { useAuth } from "../../../context/AuthContext";
+
+
 import { useNavigate } from "react-router-dom";
+import { login } from "../action/loginAction";
 
-export default function LogIn() {
-  const [toggle, setToggle] = useState(false);
-  const usernameRef = useRef(null);
-  const passwordRef = useRef(null);
-
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
-
-  //for testing
-  // const loginState = useSelector(state => state.login);
-  // console.log("Login state:", loginState);
-  // const state = useSelector(state => state); // grab entire Redux state
-  // console.log("Redux state:", state);
+// serviceNo,password
+const LogIn = () => {
+  const [serviceNo, setserviceNo] = useState("");
+  const [password, setpassword] = useState("");
+  // const { loading } = useSelector((state) => state.auth);
 
   const { loading, userInfo, error } = useSelector((state) => state.login);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // const { handleLogin } = useAuth();
 
   useEffect(() => {
-    //for loading state
-    if (loading) {
-      toast.info("Loading...", {
-        position: "top-right",
-        autoClose: 500,
-        style: {
-          backgroundColor: "#77b9efff",
-          color: "#fff",
-          marginTop: "10px",
-          width: "300px",
-          minHeight: "40px",
-        },
-        progressStyle: { backgroundColor: "#fff" },
-      });
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+   
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute("content", "#004AAD");
     }
-    //for error chacking
     if (error) {
-      toast.error(error, {
-        position: "top-right",
-        autoClose: 3000,
-        style: {
-          backgroundColor: "#f44336",
-          color: "#fff",
-          marginTop: "10px",
-          width: "300px",
-          minHeight: "40px",
-        },
-        progressStyle: { backgroundColor: "#fff" },
-      });
+    toast.error(error);
     }
-    // // for testing
-    // console.log("Loading:", loading);
-    // console.log("Error:", error);
-  }, [loading, error]);
+  }, [error]);
 
-  const togglePasswordVisibility = () => {
-    setToggle((prev) => !prev);
+  const validate = () => {
+    let isValid = true;
+    if (serviceNo.trim() === "" || password.trim() === "") {
+      isValid = false;
+      toast.error("Please Enter Valid UserID & Password.");
+    }
+    return isValid;
   };
 
-  const isFieldEmpty = (ref) => {
-    if (!ref.current.value) {
-      ref.current.focus();
-
-      toast.error("This fields cannot be empty", {
-        position: "top-right",
-        autoClose: 3000,
-        style: {
-          backgroundColor: "#f44336",
-          color: "#fff",
-          marginTop: "10px",
-          width: "300px",
-          minHeight: "40px",
-        },
-        progressStyle: { backgroundColor: "#fff" },
-      });
-
-      return true;
-    }
-
-    return false;
-  };
-
-  const handleKeyDown = (e, nextRef, previousRef) => {
-    if (e.key === "Enter" || e.key === "ArrowDown") {
-      e.preventDefault();
-      if (nextRef && nextRef.current) nextRef.current.focus();
-    }
-    if (e.key === "ArrowUp") {
-      e.preventDefault();
-      if (previousRef && previousRef.current) previousRef.current.focus();
+  const handleButtonClick = (e) => {
+    if (validate() && !loading) {
+      dispatch(login(serviceNo, password, navigate));
     }
   };
 
-  const haddleSubmit = () => {
-    const username = usernameRef.current.value;
-    const password = passwordRef.current.value;
+  const onServiceNoChanged = (e) => {
+    setserviceNo(e.target.value);
+  };
 
-    if (isFieldEmpty(usernameRef)) return;
-    if (isFieldEmpty(passwordRef)) return;
-
-    dispatch(login(username, password, navigate));
+  const onPasswordChanged = (e) => {
+    setpassword(e.target.value);
   };
 
   return (
-    <div className="container">
-      {/* <img src={hideEye} alt="Hide eye icon" />
-      <img src={showEye} alt="Show eye icon" /> */}
-      <div className="upperPart">
-        <div className="headerTitle">
-          <p className="p_dts">DTS</p>
-          <p className="p_info">INFO</p>
-        </div>
-        <div className="headerText">
-          <p>Sign in to your</p>
-          <p>Account</p>
-        </div>
-        <div className="subText">Enter your userID and password to log in</div>
-      </div>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        //height: 800,
+        backgroundColor: "#F8F9FA",
+        backgroundImage: `url(${imge})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <Box
+        component="img"
+        sx={{
+          height: "20%",
+          width: "50%",
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
+        }}
+        src={Textlogo}
+      />
+      <Typography
+        variant="h5"
+        fontWeight={300}
+        sx={{ my: 2, color: "#fff", marginBottom: "30%" }}
+      >
+        Cooperate Mobile App
+      </Typography>
 
-      <div className="middlePart">
-        <div className="card">
-          <input
-            ref={usernameRef}
-            type="text"
-            id="username"
-            placeholder="User ID"
-            className="inputUserName"
-            onKeyDown={(e) => handleKeyDown(e, passwordRef, null)}
-          />
-          <div className="passwordWrapper">
-            <input
-              ref={passwordRef}
-              type={toggle ? "text" : "password"}
-              id="password"
-              placeholder="******"
-              className="inputPassword"
-              onKeyDown={(e) => handleKeyDown(e, null, usernameRef)}
-            />
-            <button
-              className="eyeButton"
-              aria-label="Toggle password visibility "
-              onClick={togglePasswordVisibility}
-            >
-              <img
-                className="btn_img"
-                src={toggle ? showEye : hideEye}
-                alt="eye"
+      <Card sx={{ borderRadius: 5, boxShadow: 8 }}>
+        <Box p={3} textAlign="center">
+          <Typography variant="h4" fontWeight={600} sx={{ my: 2 }}>
+            Sign in
+          </Typography>
+        </Box>
+        <Box px={2} pb={3} textAlign="center">
+          <Typography
+            variant="h6"
+            color="#646464"
+            fontWeight={500}
+            sx={{ mb: 3 }}
+          >
+            Enter your registered User Id & Password
+          </Typography>
+          <Box>
+            <Box mb={1}>
+              <TextField
+                id="outlined-basic"
+                label="User ID"
+                variant="outlined"
+                InputProps={{ sx: { borderRadius: 3 } }}
+                sx={{
+                  input: { textAlign: "center", fontSize: 20 },
+                  label: {
+                    right: "1.75rem",
+                    transformOrigin: "center",
+                    fontSize: "1rem",
+                  },
+                  legend: { textAlign: "center", fontSize: "0.7rem" },
+                }}
+                fullWidth
+                type="text"
+                onChange={onServiceNoChanged}
               />
-            </button>
-          </div>
-          <button className="loginButton" onClick={haddleSubmit}>
-            Log In
-          </button>
-        </div>
-      </div>
+            </Box>
+            <Box mb={1}>
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                InputProps={{ sx: { borderRadius: 3 } }}
+                sx={{
+                  input: { textAlign: "center", fontSize: 20 },
+                  label: {
+                    right: "1.75rem",
+                    transformOrigin: "center",
+                    fontSize: "1rem",
+                  },
+                  legend: { textAlign: "center", fontSize: "0.7rem" },
+                }}
+                fullWidth
+                type="password"
+                onChange={onPasswordChanged}
+              />
+            </Box>
+            <Box mt={4} mb={1}>
+              {/* <Button color="info" fullWidth>
+                Sign In
+              </Button> */}
+              <LoadingButton
+                onClick={handleButtonClick}
+                endIcon={<LoginIcon />}
+                loading={loading}
+                loadingPosition="center"
+                variant="contained"
+                sx={{
+                  width: "90%",
+                  maxWidth: { xs: 350, md: 250 },
+                  backgroundColor: "#0049AF",
+                  textTransform: "capitalize",
+                  borderRadius: 3,
+                }}
+              >
+                <span style={{ color: "#fff", fontSize: 18, fontWeight: 400 }}>
+                  Sign In
+                </span>
+              </LoadingButton>
+            </Box>
+          </Box>
+        </Box>
+      </Card>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          alignItems: "center",
 
-      <div className="lowerPart">
-        <div className="copyright">
-          Copyrights © Dockyard Total Solution (Pvt) Ltd.
-          <br />
+          marginTop: 10,
+        }}
+      >
+        <Typography
+          variant="h8"
+          color="#646464"
+          fontWeight={500}
+          textAlign={"center"}
+          paddingLeft={3}
+          paddingRight={3}
+        >
+          Copyrights © Colombo Dockyard PLC.
+        </Typography>
+        <Typography variant="h7" color="#646464" fontWeight={500}>
           All Rights Reserved.
-        </div>
-        <div className="poweredBy">
-          Powered By Dockyard Total Solution (Pvt) LTD.
-        </div>
-      </div>
-    </div>
+        </Typography>
+        <Typography fontSize={8} color="#646464" fontWeight={500}>
+          Powered By Dockyard Total Solution (Pvt) Ltd.
+        </Typography>
+      </Box>
+    </Container>
   );
-}
+};
+
+export default LogIn;

@@ -4,10 +4,8 @@ import { GetCurrentTime } from "./timeReducers";
 import { attendanceReducer } from "./attendanceReducer"
 import { locationListReducer } from "./locationReducers"
 import { locationWiseChartReducer } from "./LocationWiseChartReducer";
-import { loginReducer } from "./loginReducer"; // Assuming you have a loginReducer
-import { designationWiseChartReducer } from "./DesignationWiseChartReducer"; // Importing action for fetching data
-import deploymentReducer from "./deploymentReducer";
-import employeeReducer from "./employeeReducer";
+import { loginReducer } from "./loginReducer"; 
+import { designationWiseChartReducer } from "./DesignationWiseChartReducer"; 
 
 const rootReducer = combineReducers({
     GetCurrentTime,
@@ -16,9 +14,6 @@ const rootReducer = combineReducers({
     locationData: locationListReducer,
     locationWiseChart: locationWiseChartReducer,
     designationWiseChart: designationWiseChartReducer,
-    employees: employeeReducer,
-    deployment: deploymentReducer,
-    
 
 });
 
